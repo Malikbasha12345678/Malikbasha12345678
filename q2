@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main()
+{
+	int Max;
+	printf("Enter an number: ");
+	scanf("%d", &Max);
+	int sieve[Max];
+    for(int i = 1; i <= Max; i++)
+	{
+		sieve[i] = i;
+	}
+  	for(int i = 2; i*i <=Max; i++)
+	{
+		if(sieve[i] != -1)
+		{
+   for(int j = 2*i; j <=Max ; j += i)
+				sieve[j] = -1;
+		}
+	}
+	    printf("Prime numbers are: \n");
+    	for(int i=2; i <= Max; i++)
+	{
+		if(sieve[i] != -1)
+		{
+			printf("%d ", i);
+		}
+	}
+}
